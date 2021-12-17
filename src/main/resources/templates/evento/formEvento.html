@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Cadastrar Evento</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="content">
+        <h1>Cadastrar Evento</h1>
+        <div class="form">
+            <form method="post">
+                <div class="input-container">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" />
+                </div>
+                <div class="input-container">
+                    <label for="local">Local</label>
+                    <input type="text" name="local" />
+                </div>
+                <div class="input-container">
+                    <label for="data">Data</label>
+                    <input type="date" name="data" />
+                </div>
+                <div class="input-container">
+                    <label for="horario">Horário</label>
+                    <input type="time" name="horario" />
+                </div>
+                <div class="buttons">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
