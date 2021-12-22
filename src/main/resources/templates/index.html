@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Spring Teste</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Lista - SpringEventos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/styles/materialize/css/materialize.min.css}"
+          media="screen,projection"/>
+</head>
+<body>
+
+<div class="header">
+    <h1>Lista de Eventos</h1>
+    <a href="/cadastrar-evento" class="waves-effect waves-light btn">
+        <i class="material-icons left">add</i>
+        Novo Evento
+    </a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Horário</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="evento: ${eventos}">
+        <td>
+            <span th:text="${evento.nome}"></span>
+        </td>
+        <td>
+            <span th:text="${evento.local}"></span>
+        </td>
+        <td>
+            <span th:text="${evento.data}"></span>
+        </td>
+        <td>
+            <span th:text="${evento.horario}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
+
+</body>
 </html>
