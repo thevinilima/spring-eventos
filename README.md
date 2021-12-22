@@ -1,4 +1,4 @@
 # SpringEventos
-Repositório apenas para o Questionário de LP de 09/12/21
+Repositório para os Questionários de LP dos dias 09 e 16/12/21
 
 ``` Vinicius Lima - INF3A ```
