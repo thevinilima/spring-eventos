@@ -13,41 +13,34 @@
 <div class="container">
 
     <div class="header">
-        <h1>Lista de Eventos</h1>
-        <a href="/cadastrar-evento" class="waves-effect waves-light btn">
-            <i class="material-icons left">add</i>
-            Novo Evento
+        <h1>Evento</h1>
+        <a href="/eventos" class="waves-effect waves-light btn">
+            <i class="material-icons left">format_list_bulleted</i>
+            Lista de Eventos
         </a>
     </div>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Local</th>
-            <th>Data</th>
-            <th>Horário</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="evento: ${eventos}">
-            <td>
-                <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
-                    <span th:text="${evento.nome}"></span>
-                </a>
-            </td>
-            <td>
+    <div class="wrapper margin-top">
+        <div class="row">
+            <div>
+                <span>Nome: </span>
+                <span th:text="${evento.nome}"></span>
+            </div>
+            <div>
+                <span>Local: </span>
                 <span th:text="${evento.local}"></span>
-            </td>
-            <td>
+            </div>
+            <div>
+                <span>Data: </span>
                 <span th:text="${evento.data}"></span>
-            </td>
-            <td>
+            </div>
+            <div>
+                <span>Horário: </span>
                 <span th:text="${evento.horario}"></span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
