@@ -10,41 +10,42 @@
           media="screen,projection"/>
 </head>
 <body>
+<div class="container">
+    <div class="header">
+        <h1>Lista de Eventos</h1>
+        <a href="/cadastrar-evento" class="waves-effect waves-light btn">
+            <i class="material-icons left">add</i>
+            Novo Evento
+        </a>
+    </div>
 
-<div class="header">
-    <h1>Lista de Eventos</h1>
-    <a href="/cadastrar-evento" class="waves-effect waves-light btn">
-        <i class="material-icons left">add</i>
-        Novo Evento
-    </a>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Horário</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="evento: ${eventos}">
+            <td>
+                <span th:text="${evento.nome}"></span>
+            </td>
+            <td>
+                <span th:text="${evento.local}"></span>
+            </td>
+            <td>
+                <span th:text="${evento.data}"></span>
+            </td>
+            <td>
+                <span th:text="${evento.horario}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-
-<table>
-    <thead>
-    <tr>
-        <th>Nome</th>
-        <th>Local</th>
-        <th>Data</th>
-        <th>Horário</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="evento: ${eventos}">
-        <td>
-            <span th:text="${evento.nome}"></span>
-        </td>
-        <td>
-            <span th:text="${evento.local}"></span>
-        </td>
-        <td>
-            <span th:text="${evento.data}"></span>
-        </td>
-        <td>
-            <span th:text="${evento.horario}"></span>
-        </td>
-    </tr>
-    </tbody>
-</table>
 
 <script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
 
