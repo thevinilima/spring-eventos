@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Lista - SpringEventos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/styles/materialize/css/materialize.min.css}"
+          media="screen,projection"/>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1>Evento</h1>
+        <a href="/eventos" class="waves-effect waves-light btn">
+            <i class="material-icons left">format_list_bulleted</i>
+            Lista de Eventos
+        </a>
+    </div>
+
+    <div class="wrapper">
+        <div class="row">
+            <div>
+                <span>Nome: </span>
+                <span th:text="${evento.nome}"></span>
+            </div>
+            <div>
+                <span>Local: </span>
+                <span th:text="${evento.local}"></span>
+            </div>
+            <div>
+                <span>Data: </span>
+                <span th:text="${evento.data}"></span>
+            </div>
+            <div>
+                <span>Horário: </span>
+                <span th:text="${evento.horario}"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form">
+        <h4>Adicionar convidado</h4>
+        <form method="post">
+            <div class="input-field">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome"/>
+            </div>
+            <div class="input-field">
+                <label for="rg">RG</label>
+                <input type="text" name="rg"/>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="waves-effect waves-light btn">
+                    Adicionar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript" th:src="@{/styles/materialize/js/materialize.min.js}"></script>
+
+</body>
+</html>
