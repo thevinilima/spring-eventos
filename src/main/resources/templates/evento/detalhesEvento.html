@@ -20,7 +20,7 @@
         </a>
     </div>
 
-    <div class="wrapper margin-top">
+    <div class="wrapper">
         <div class="row">
             <div>
                 <span>Nome: </span>
@@ -39,6 +39,25 @@
                 <span th:text="${evento.horario}"></span>
             </div>
         </div>
+    </div>
+
+    <div class="form">
+        <h4>Adicionar convidado</h4>
+        <form method="post">
+            <div class="input-field">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome"/>
+            </div>
+            <div class="input-field">
+                <label for="rg">RG</label>
+                <input type="text" name="rg"/>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="waves-effect waves-light btn">
+                    Adicionar
+                </button>
+            </div>
+        </form>
     </div>
 
 </div>
