@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 
 @Controller
 public class EventoController {
@@ -47,6 +49,9 @@ public class EventoController {
         Evento evento = er.findByCodigo(codigo);
         ModelAndView mv = new ModelAndView("evento/detalhesEvento");
         mv.addObject("evento", evento);
+
+        List<Convidado> convidados = cr.findByEvento(evento);
+        mv.addObject("convidados", convidados);
 
         return mv;
     }
