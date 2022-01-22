@@ -1,14 +1,19 @@
 package com.vinicius.SpringEventos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Convidado {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codigo;
+
+    @NotEmpty(message = "Informe o nome")
     private String rg;
+
+    @NotEmpty(message = "Informe o nome")
     private String nome;
 
     @ManyToOne

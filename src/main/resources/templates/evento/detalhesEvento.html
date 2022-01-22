@@ -58,6 +58,7 @@
                 </button>
             </div>
         </form>
+        <th:block th:include="mensagemValidacao" />
     </div>
 
     <div class="wrapper">
@@ -67,15 +68,13 @@
                 <th>Nome</th>
                 <th>RG</th>
             </tr>
-            <tr class="list" th:each="convidado: ${convidados}">
-                <!--            <div class="row">-->
+            <tr th:each="convidado: ${convidados}">
                 <td class="col s6">
                     <span th:text="${convidado.nome}"/>
                 </td>
                 <td class="col s6">
                     <span th:text="${convidado.rg}"/>
                 </td>
-                <!--            </div>-->
             </tr>
         </table>
     </div>

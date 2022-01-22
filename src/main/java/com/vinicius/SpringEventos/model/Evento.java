@@ -3,6 +3,7 @@ package com.vinicius.SpringEventos.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Evento implements Serializable {
@@ -13,9 +14,16 @@ public class Evento implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codigo;
 
+    @NotEmpty
     private String nome;
+
+    @NotEmpty
     private String local;
+
+    @NotEmpty
     private String data;
+
+    @NotEmpty
     private String horario;
 
     @OneToMany

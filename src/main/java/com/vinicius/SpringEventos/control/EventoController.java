@@ -6,11 +6,14 @@ import com.vinicius.SpringEventos.repository.ConvidadoRepository;
 import com.vinicius.SpringEventos.repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -22,14 +25,19 @@ public class EventoController {
 
     @Autowired
     private ConvidadoRepository cr;
-    
+
     @RequestMapping(value = "/cadastrar-evento", method = RequestMethod.GET)
     public String form() {
         return "evento/formEvento";
     }
 
     @RequestMapping(value = "/cadastrar-evento", method = RequestMethod.POST)
-    public String form(Evento evento) {
+    public String form(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("message", "Preencha todos os campos");
+            return "redirect:/cadastrar-evento";
+        }
+
         er.save(evento);
 
         return "redirect:/cadastrar-evento";
@@ -44,7 +52,7 @@ public class EventoController {
         return mv;
     }
 
-    @RequestMapping(value="/{codigo}", method=RequestMethod.GET)
+    @RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
     public ModelAndView detalhesEvento(@PathVariable("codigo") long codigo) {
         Evento evento = er.findByCodigo(codigo);
         ModelAndView mv = new ModelAndView("evento/detalhesEvento");
@@ -56,8 +64,18 @@ public class EventoController {
         return mv;
     }
 
-    @RequestMapping(value="/{codigo}", method=RequestMethod.POST)
-    public String detalhesEventoPost(@PathVariable("codigo") long codigo, Convidado convidado) {
+    @RequestMapping(value = "/{codigo}", method = RequestMethod.POST)
+    public String detalhesEventoPost(
+            @PathVariable("codigo") long codigo,
+            @Valid Convidado convidado,
+            BindingResult result,
+            RedirectAttributes attributes
+    ) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("message", "Preencha todos os campos");
+            return "redirect:/{codigo}";
+        }
+
         Evento evento = er.findByCodigo(codigo);
         convidado.setEvento(evento);
         cr.save(convidado);
