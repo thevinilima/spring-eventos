@@ -1,0 +1,6 @@
+.evt-details {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+}
