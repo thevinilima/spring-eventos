@@ -19,6 +19,14 @@ public class Convidado {
     @ManyToOne
     private Evento evento;
 
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
     public String getRg() {
         return rg;
     }

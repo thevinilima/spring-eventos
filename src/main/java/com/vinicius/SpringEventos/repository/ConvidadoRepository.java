@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ConvidadoRepository extends CrudRepository<Convidado, String> {
     List<Convidado> findByEvento(Evento evento);
+
+    Convidado findByCodigo(long codigo);
 }
